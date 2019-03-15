@@ -1,0 +1,131 @@
+ @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+  padding: 0;
+  margin: 0;
+}
+a {
+  color: #337ab7;
+}
+p {
+  margin-top: 1rem;
+  font-size: 40px;
+}
+mark.red{
+  color: red;
+  background: none;
+}
+a:hover {
+  color:#23527c;
+}
+a:visited {
+  color: #8d75a3;
+}
+#left {
+  width: 330px;
+  float: left;
+  height: 1000px;
+  left: 0;
+  background-color: #faf9f8;
+  opacity: 0.15;
+}
+#right {
+  margin-left: 333px;
+  /* not sure why I don't have to float this div */
+  /* float: left; */
+}
+#main {
+  margin: 1rem;
+  padding: 1rem;
+  font-family: 'Roboto',sans-serif;
+  max-width: 50rem;
+  margin: 0 auto;
+  position: relative;
+}
+body {
+  background-repeat: no-repeat;
+}
+#controls {
+  display: flex;
+  margin-top: 2rem;
+}
+button {
+  flex-grow: 1;
+  height: 2.5rem;
+  min-width: 2rem;
+  border: none;
+  border-radius: 0.15rem;
+  background: #1da3ed;
+  margin-left: 2px;
+  box-shadow: inset 0 -0.15rem 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:#ffffff;
+  font-weight: bold;
+  font-size: 1rem;
+}
+button:hover, button:focus {
+  outline: none;
+  background: #c72d1c;
+}
+button::-moz-focus-inner {
+  border: 0;
+}
+button:active {
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
+  line-height: 3rem;
+}
+button:disabled {
+  pointer-events: none;
+  background: lightgray;
+}
+button:first-child {
+  margin-left: 0;
+}
+audio {
+  display: block;
+  width: 100%;
+  margin-top: 0.2rem;
+}
+li {
+  list-style: none;
+  margin-bottom: 1rem;
+}
+#formats {
+  margin-top: 0.5rem;
+  font-size: 80%;
+}
+
+#card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    text-align: center;
+    margin-top: 300px;
+}
+
+/* On mouse-over, add a deeper shadow */
+#card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+    padding: 2px 16px;
+}
+
+#progressbardiv{
+  padding-left:250px;
+  margin-top: 2rem;
+}
+
+#volumemeter{
+  padding-left:210px;
+  margin-top: 2rem;
+}
+
+#loader {
+  height: 2.5rem;
+}

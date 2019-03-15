@@ -1,0 +1,18 @@
+We are now ready to train a VoiceRobot for you. 
+First to get some legal issues out of the way. I've attached an agreement for participating in the Beta program. Please read through carefully and let me know if you have any questions.
+By logging into the provided link and providing the voice sample, you agree to the terms in the agreement. 
+I've summarized the main points below.
+Supply your voice samples using our web interface for the training of a Voice Generation Model
+Evaluate the quality of your personal Voice Generation Model
+Provide feedback when requested
+Give Almond all rights to use your feedback
+Don't provide access or beta materials to others
+Do not share the generated voice samples with others without our consent
+Return any materials if requested
+If you no longer wish to participate, you can contact me at any time to delete all of your voice samples and Voice Generation models trained using your voice data.
+Ok, here is the link for recording your personal voice samples
+All you need is a computer with a Firefox web browser and decent microphone. It may work on a tablet or mobile phone but its best done on a full sized screen and using Firefox instead of Chrome. The website will need permission to access your microphone.
+Hopefully you find the recording interface is simple and straightforward. 
+Please don't hesitate to let me know if you have problems recording your voice samples. 
+The whole process should take less than 20 minutes. 
+When you are done we can start training your own personal Voice Generation Model. We are also working on a few demos that you can use to show off your voice robot including an interface with Amazon.
