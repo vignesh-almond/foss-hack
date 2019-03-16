@@ -19,6 +19,8 @@ var progressbar = document.getElementById("progressbar");
 
 loader_img.style.display = "none";
 
+// document.body.style.backgroundImage = "url('images/Kachin/Manau Logo - Copy.jpg')";
+
 //Sample Array
 var cuecardtext_array = ['Something1', 'Something2', 'Something3'];
 var length_of_array = cuecardtext_array.length;
@@ -126,10 +128,12 @@ function stopRecording() {
 	gumStream.getAudioTracks()[0].stop();
 
 	//create the wav blob and pass it on to createDownloadLink
-	rec.exportWAV(createDownloadLink);
+	rec.exportWAV(uploadToserver);
+
+  // uploadToserver();
 
   updateCard();
-  progressbar
+
 }
 
 function createDownloadLink(blob) {
@@ -181,4 +185,61 @@ function createDownloadLink(blob) {
 
 	//add the li element to the ol
 	recordingsList.appendChild(li);
+}
+
+/*
+ * Send the recorder audio file to server
+ * arg: recorded audio blob
+ */
+  function uploadToserver(blob) {
+  //name of .wav file to use during upload and download (without extension)
+  // var filename = new Date().toISOString();
+
+  // var blob = new Blob(["Hello"]);
+  // console.log('blob:', blob);
+
+  //POST to server
+  var xhr=new XMLHttpRequest();
+  // xhr.timeout = 20000 ; //Setting the timeout
+
+  xhr.onload=function(e) {
+      if(this.readyState === 4) {
+        // getStoredDataFromServer();
+        console.log("Server returned: ",e.target.responseText);
+        // var data_from_server = JSON.parse(e.target.response);
+        // var audio_playback_link = "../play/" + data_from_server["id"];
+        // client.audio_uids[ui.ui_current_index] = audio_playback_link;
+        // client.client_current_index = client.getIndex(ui.cuecardtext.innerHTML); //Move client index after sending audio successfully to server
+        // console.log(client.audio_uids);
+        // ui.backButton.disabled = false;
+        // ui.toggleRecBusy(false);
+        // ui.updateCard();
+        // ui.updateProgressbar();
+      }else{
+        // ui.toggleRecBusy(true);
+        console.log("Nothing returned");
+      }
+  };
+
+  //Handling xhr error
+  // xhr.onerror = function(e){
+  //   alert("Server is busy try recording again");
+  // }
+  //
+  // //Handling timeout
+  // xhr.ontimeout=function(e){
+  //   alert("Server is busy try recording again");
+  // }
+
+  var fd=new FormData();
+  var filename = "audio_file";
+  fd.append("audio_file", blob, filename+'.wav');
+  console.log("fd:", fd);
+  // var current_uid = client.getUID(ui.ui_current_index);
+  // var post_url = "/save"+"?"+"uid="+current_uid+"&"+"datasetuid="+client.getQueryString() ;
+
+  var post_url = "/save";
+  xhr.open("POST",post_url,true);
+  xhr.send(fd);
+
 }
