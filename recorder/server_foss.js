@@ -10,6 +10,7 @@ const fs = require('fs');
 var multer = require('multer');
 var PythonShell = require('python-shell');
 
+const { spawn } = require('child_process');
 
 var port    =   process.env.PORT || 8687;
 
@@ -30,6 +31,18 @@ app.use(express.static(__dirname + '/public'));
 // })
 //
 // var db = admin.firestore();
+
+
+function useChildProcess(response){
+  const { execFile } = require('child_process');
+  const child = execFile('python', ['/root/sharedfolder/foss-hack/recorder/public/python/say_hello.py'], (error, stdout, stderr) => {
+    if (error) {
+      throw error;
+    }
+    // console.log(stdout);
+    return response.send(stdout);
+  });
+}
 
 function getPyShell(){
 
@@ -85,8 +98,7 @@ app.get('/record', function(req, res) {
 
 app.post('/save', upload.single('audio_file'), function(req,res,next){
   console.log(req.file);
-  executePython();
-  res.send("Got the file");
+  useChildProcess(res);
 });
 
 app.use(function(err,req,res,next){

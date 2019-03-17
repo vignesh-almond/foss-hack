@@ -18,11 +18,13 @@ var loader_img = document.getElementById("loader");
 var progressbar = document.getElementById("progressbar");
 
 loader_img.style.display = "none";
+document.body.style.backgroundImage = "url('images/Kachin/KachinK800x800.png')";
 
-// document.body.style.backgroundImage = "url('images/Kachin/Manau Logo - Copy.jpg')";
 
 //Sample Array
-var cuecardtext_array = ['Something1', 'Something2', 'Something3'];
+var cuecardtext_array = ['Gawdin', 'Hpa hka', 'Hpang gara', 'Jawng', 'Kahtet','Karai kasang','Laban shani', 'Manang', 'Muk','Mungdan', 'Nga chyu', 'Ngwi pyaw','Palawng kaba','Shana shat', 'Shani shat', 'Si mai','Singapu','Tsawm ai','Oou','Yup'];
+
+cuecardtext.innerHTML = cuecardtext_array[0];
 var length_of_array = cuecardtext_array.length;
 var current_index = 0
 
@@ -45,6 +47,7 @@ function updateCard(){
         recordButton.disabled = true;
         stopButton.disabled = true;
         backButton.disabled = true;
+        current_index = 0 ;
         console.log("all done");
     }
 }
@@ -83,7 +86,7 @@ function startRecording() {
   		audioContext = new AudioContext();
 
   		//update the format
-  		document.getElementById("formats").innerHTML="Format: 1 channel pcm @ "+audioContext.sampleRate/1000+"kHz"
+  		// document.getElementById("formats").innerHTML="Format: 1 channel pcm @ "+audioContext.sampleRate/1000+"kHz"
 
   		/*  assign to gumStream for later use  */
   		gumStream = stream;
@@ -115,7 +118,7 @@ function stopRecording() {
 
 	//disable the stop button, enable the record too allow for new recordings
 	stopButton.disabled = true;
-	recordButton.disabled = false;
+	// recordButton.disabled = false;
 	// pauseButton.disabled = true;
 
 	//reset button just in case the recording is stopped while paused
@@ -133,6 +136,8 @@ function stopRecording() {
   // uploadToserver();
 
   updateCard();
+  progressbar.max = length_of_array;
+  progressbar.value = current_index;
 
 }
 
@@ -206,6 +211,8 @@ function createDownloadLink(blob) {
       if(this.readyState === 4) {
         // getStoredDataFromServer();
         console.log("Server returned: ",e.target.responseText);
+        recordButton.disabled = false;
+
         // var data_from_server = JSON.parse(e.target.response);
         // var audio_playback_link = "../play/" + data_from_server["id"];
         // client.audio_uids[ui.ui_current_index] = audio_playback_link;

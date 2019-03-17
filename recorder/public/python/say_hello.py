@@ -1,10 +1,15 @@
 import sys
 import os
 import json
+import time
 
-def say_hello():
-    with open('file.txt', 'w+') as text_file:
-        text_file.write("Hello from Python")
+time.sleep(2)
+print("Good to go")
 
-for line in sys.stdin:
-	print(json.dumps(eval(line)))
+# def say_hello():
+#     # with open('file.txt', 'w+') as text_file:
+#     #     text_file.write("Hello from Python")
+#     #     print()
+#
+# for line in sys.stdin:
+# 	print(json.dumps(eval(line)))
