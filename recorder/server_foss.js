@@ -12,7 +12,7 @@ var PythonShell = require('python-shell');
 
 const { spawn } = require('child_process');
 
-var port    =   process.env.PORT || 8687;
+var port    =   process.env.PORT || 443;
 
 // fs.mkdirSync('uploads', true);
 var upload = multer({dest:'uploads/'});
