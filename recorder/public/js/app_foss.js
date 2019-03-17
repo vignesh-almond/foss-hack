@@ -35,7 +35,7 @@ stopButton.addEventListener("click", stopRecording);
 
 function updateCard(){
     //Update the text for the next cue card
-    if ( current_index < length_of_array -1){
+    if ( current_index <= length_of_array -1){
         cuecardtext.innerHTML = cuecardtext_array[current_index];
         current_index = current_index + 1;
         console.log(current_index);
@@ -46,8 +46,9 @@ function updateCard(){
         // document.body.style.backgroundImage = "url('images/img_final.png')";
         recordButton.disabled = true;
         stopButton.disabled = true;
-        backButton.disabled = true;
+        //backButton.disabled = true;
         current_index = 0 ;
+	alert("ALL Done");
         console.log("all done");
     }
 }
